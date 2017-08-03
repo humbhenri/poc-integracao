@@ -76,7 +76,9 @@
 </xs:complexType>
 
 <xs:complexType name="createProfessorResponse">
-<xs:sequence/>
+<xs:sequence>
+<xs:element name="return" type="tns:professor" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="deleteProfessor">

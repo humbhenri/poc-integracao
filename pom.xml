@@ -100,6 +100,24 @@
                         <id>wsimport-generate-ProfessorWS</id>
                         <phase>generate-sources</phase>
                     </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8084/cobol/UserWS.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>com.unibrasil.sca.integracao</packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8084/cobol/UserWS?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/UserWS.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-UserWS</id>
+                        <phase>generate-sources</phase>
+                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>
