@@ -60,6 +60,7 @@ public class ProfessorController {
             Professor createdProfessor = professorWSPort.createProfessor(professor);
             URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(createdProfessor.getId())
                     .toUri();
+            LOGGER.log(Level.INFO, "professor criado, resposta {0}", location.toString());
             return ResponseEntity.created(location).build();
         } catch (java.lang.Exception e) {
             LOGGER.log(Level.SEVERE, e.getMessage());
