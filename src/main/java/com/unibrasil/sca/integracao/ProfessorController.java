@@ -81,7 +81,7 @@ public class ProfessorController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (Throwable e) {
             LOGGER.severe(e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
 
