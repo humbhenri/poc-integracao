@@ -23,7 +23,17 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Dalston.SR1</spring-cloud.version>
+	<wsdl.host>localhost</wsdl.host>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>docker</id>
+	    <properties>
+	        <wsdl.host>cobol</wsdl.host>
+	    </properties>
+	</profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -94,7 +104,7 @@
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://localhost:8080/cobol/ProfessorWS?wsdl</wsdlLocation>
+                            <wsdlLocation>http://${wsdl.host}:8080/cobol/ProfessorWS?wsdl</wsdlLocation>
                             <staleFile>${project.build.directory}/jaxws/stale/ProfessorWS.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-ProfessorWS</id>
@@ -112,7 +122,7 @@
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://localhost:8080/cobol/UserWS?wsdl</wsdlLocation>
+                            <wsdlLocation>http://${wsdl.host}:8080/cobol/UserWS?wsdl</wsdlLocation>
                             <staleFile>${project.build.directory}/jaxws/stale/UserWS.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-UserWS</id>
