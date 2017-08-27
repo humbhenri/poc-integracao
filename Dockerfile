@@ -1,10 +1,12 @@
-FROM picoded/ubuntu-openjdk-8-jdk
+FROM maven
 MAINTAINER Humberto Pinheiro <humbhenri@gmail.com>
 VOLUME /tmp
-ADD target/integracao-0.0.1-SNAPSHOT.jar /app.jar
-RUN sh -c 'touch /app.jar'
+ADD . /tmp
+WORKDIR /tmp
 ADD wait.sh /wait.sh
-RUN chmod +x /wait.sh
-RUN apt update && apt install netcat -y
-CMD /wait.sh && java -Xmx100M -jar -Dspring.profiles.active=docker /app.jar
+RUN mvn clean package -DskipTests\
+    && chmod +x /wait.sh \
+	&& apt update \
+	&& apt install netcat -y
+CMD /wait.sh && java -Xmx100M -jar -Dspring.profiles.active=docker target/integracao-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
