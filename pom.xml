@@ -104,7 +104,7 @@
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://${wsdl.host}:8080/cobol/ProfessorWS?wsdl</wsdlLocation>
+                            <wsdlLocation>src/wsdl/localhost_8084/cobol/ProfessorWS.wsdl</wsdlLocation>
                             <staleFile>${project.build.directory}/jaxws/stale/ProfessorWS.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-ProfessorWS</id>
@@ -122,7 +122,7 @@
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://${wsdl.host}:8080/cobol/UserWS?wsdl</wsdlLocation>
+                            <wsdlLocation>src/wsdl/localhost_8084/cobol/UserWS.wsdl</wsdlLocation>
                             <staleFile>${project.build.directory}/jaxws/stale/UserWS.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-UserWS</id>
